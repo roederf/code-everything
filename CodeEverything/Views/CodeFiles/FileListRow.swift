@@ -20,11 +20,18 @@ struct FileListRow: View {
             Text(file.name)
             
             Spacer()
+            
+            if file.isActive {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }
 
 struct FileListRow_Previews: PreviewProvider {
+    static var codeFiles = ModelData().codeFiles
+    
     static var previews: some View {
         Group {
             FileListRow(file: codeFiles[0])

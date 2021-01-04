@@ -1,7 +1,14 @@
 import SwiftUI
 
 struct CodeView: View {
+    @EnvironmentObject var modelData: ModelData
     var codeFile: FileModel
+    
+    var codeFileIndex: Int {
+        modelData.codeFiles.firstIndex(where: {
+            $0.id == codeFile.id
+        })!
+    }
         
     var body: some View {
         VStack(spacing: 0) {
@@ -14,6 +21,7 @@ struct CodeView: View {
                 .shadow(radius: 7)
                 
                 Text(codeFile.name)
+                ActivationButton(isSet: $modelData.codeFiles[codeFileIndex].isActive)
                 Spacer()
                 Text("Play")
             }
@@ -22,7 +30,7 @@ struct CodeView: View {
             ScrollView {
                 Text(codeFile.content)
             }
-            .navigationBarTitle(codeFile.name)
+            .navigationTitle(codeFile.name)
             
             Spacer()
         }
@@ -30,7 +38,10 @@ struct CodeView: View {
 }
 
 struct CodeView_Previews: PreviewProvider {
+    static let modelData = ModelData()
+    
     static var previews: some View {
-        CodeView(codeFile: codeFiles[0])
+        CodeView(codeFile: modelData.codeFiles[0])
+            .environmentObject(modelData)
     }
 }

@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import Combine
 
-var codeFiles: [FileModel] = loadJSON("dataExample.json")
+final class ModelData: ObservableObject {
+    @Published var codeFiles: [FileModel] = loadJSON("dataExample.json")
+}
 
 func loadJSON<T: Decodable>(_ filename: String) -> T {
     let data: Data

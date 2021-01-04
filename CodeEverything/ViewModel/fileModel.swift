@@ -15,6 +15,7 @@ struct FileModel: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var content: String
+    var isActive: Bool
 
     private var imageName: String
     var image: Image {
