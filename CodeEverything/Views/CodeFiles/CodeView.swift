@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CodeView: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var someText: String = "Very much text"
     var codeFile: FileModel
     
     var codeFileIndex: Int {
@@ -27,12 +28,10 @@ struct CodeView: View {
             }
             .padding()
             Divider()
-            ScrollView {
-                Text(codeFile.content)
-            }
-            .navigationTitle(codeFile.name)
+            TextEditor(text: $modelData.codeFiles[codeFileIndex].content)
+                    .foregroundColor(Color.black)
+                    .font(.custom("SF Mono", size: 15))
             
-            Spacer()
         }
     }
 }
