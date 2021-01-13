@@ -12,7 +12,6 @@
 		0E7204DC259F803B00A8A081 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7204D9259F803B00A8A081 /* WebView.swift */; };
 		0E7204DE259F804900A8A081 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 0E7204DD259F804900A8A081 /* www */; };
 		0E7204E6259FDE1600A8A081 /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7204E5259FDE1600A8A081 /* RunView.swift */; };
-		0E720526259FE65200A8A081 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E720525259FE65200A8A081 /* MultilineTextView.swift */; };
 		0E72052B25A25A0000A8A081 /* dataExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E72052A25A25A0000A8A081 /* dataExample.json */; };
 		0E72052D25A25A7600A8A081 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E72052C25A25A7600A8A081 /* DashboardView.swift */; };
 		0E72052F25A25AE500A8A081 /* fileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E72052E25A25AE500A8A081 /* fileModel.swift */; };
@@ -57,7 +56,6 @@
 		0E7204D9259F803B00A8A081 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0E7204DD259F804900A8A081 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		0E7204E5259FDE1600A8A081 /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
-		0E720525259FE65200A8A081 /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
 		0E72052A25A25A0000A8A081 /* dataExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dataExample.json; sourceTree = "<group>"; };
 		0E72052C25A25A7600A8A081 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		0E72052E25A25AE500A8A081 /* fileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileModel.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				0E7204D9259F803B00A8A081 /* WebView.swift */,
-				0E720525259FE65200A8A081 /* MultilineTextView.swift */,
 			);
 			path = UIControls;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 				0E72053125A25F8400A8A081 /* ModelData.swift in Sources */,
 				0E7204E6259FDE1600A8A081 /* RunView.swift in Sources */,
 				0E7204DB259F803B00A8A081 /* Loader.swift in Sources */,
-				0E720526259FE65200A8A081 /* MultilineTextView.swift in Sources */,
 				0E993D3D25A51DC90012E7C4 /* BadgeBackground.swift in Sources */,
 				0EFAC60C25A379F400CBAD18 /* CodeEverythingApp.swift in Sources */,
 			);

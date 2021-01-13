@@ -11,6 +11,10 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var codeFiles: [FileModel] = loadJSON("dataExample.json")
+    func run()  {
+            // load code into webview
+            // navigate to RunView
+        }
 }
 
 func loadJSON<T: Decodable>(_ filename: String) -> T {

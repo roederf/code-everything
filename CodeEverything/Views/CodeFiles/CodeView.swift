@@ -24,7 +24,14 @@ struct CodeView: View {
                 Text(codeFile.name)
                 ActivationButton(isSet: $modelData.codeFiles[codeFileIndex].isActive)
                 Spacer()
-                Text("Play")
+                Button(action:
+                    modelData.run
+                ) {
+                    Image(systemName: "play")
+                        .font(.system(size: 20, weight: .regular))
+                        .imageScale(.large)
+                        .foregroundColor(.gray).padding(.bottom, 4)
+                }
             }
             .padding()
             Divider()
