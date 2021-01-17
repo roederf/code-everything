@@ -10,12 +10,12 @@ import SwiftUI
 
 @main
 struct LandmarksApp: App {
-    @StateObject private var modelData = ModelData()
+    @StateObject private var viewModel = CodeViewModel()
 
     var body: some Scene {
         WindowGroup {
             DashboardView()
-                .environmentObject(modelData)
+                .environmentObject(viewModel)
         }
     }
 }

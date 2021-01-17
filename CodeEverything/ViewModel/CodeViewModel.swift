@@ -7,11 +7,18 @@ class CodeViewModel: ObservableObject {
     var showWebTitle = PassthroughSubject<String, Never>()
     var showLoader = PassthroughSubject<Bool, Never>()
     var valuePublisher = PassthroughSubject<String, Never>()
-    var text :String
+    var title: String
+    var text: String
     
     init() {
-        text = "";
+        text = "console.log('Hello World');"
+        title = "my code"
     }
+    
+    func run()  {
+            // load code into webview
+            // navigate to RunView
+        }
 }
 
 // For identifiying WebView's forward and backward navigation

@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct DashboardView: View {
+    
     var body: some View {
-        FileList()
+        CodeView()
     }
 }
 
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
-            .environmentObject(ModelData())
     }
 }
