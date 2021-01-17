@@ -12,7 +12,7 @@ class CodeViewModel: ObservableObject {
     
     init() {
         text = "console.log('Hello World');"
-        title = "my code"
+        title = "My Code"
     }
     
     func run()  {

@@ -114,14 +114,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		0E7204E4259FD0F900A8A081 /* UIControls */ = {
-			isa = PBXGroup;
-			children = (
-				0E7204D9259F803B00A8A081 /* WebView.swift */,
-			);
-			path = UIControls;
-			sourceTree = "<group>";
-		};
 		0EAB86A9259F7871001A9D73 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				0E72052A25A25A0000A8A081 /* dataExample.json */,
-				0E7204E4259FD0F900A8A081 /* UIControls */,
 				0E7204E3259FD09900A8A081 /* ViewModel */,
 				0E7204E2259FD07C00A8A081 /* Views */,
 				0E7204DD259F804900A8A081 /* www */,
@@ -197,6 +188,7 @@
 		0EFAC62525A37BFB00CBAD18 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0E7204D9259F803B00A8A081 /* WebView.swift */,
 				0EFAC61F25A37B3200CBAD18 /* ActivationButton.swift */,
 				0E7204D8259F803B00A8A081 /* Loader.swift */,
 			);
