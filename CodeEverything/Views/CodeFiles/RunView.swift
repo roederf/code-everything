@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct RunView: View {
-    @ObservedObject var viewModel = CodeViewModel()
+    @EnvironmentObject var viewModel: CodeViewModel
+    @Binding var isRunning: Bool
     @State var showLoader = false
     @State var message = ""
     @State var webTitle = ""
@@ -13,9 +14,12 @@ struct RunView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.viewModel.webViewNavigationPublisher.send(.reload)
-                }) {
-                    Image(systemName: "arrow.clockwise")
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                self.isRunning.toggle()
+                            }
+                })
+                {
+                    Image(systemName: "stop")
                         .font(.system(size: 20, weight: .regular))
                         .imageScale(.large)
                         .foregroundColor(.gray).padding(.bottom, 4)
@@ -49,7 +53,7 @@ struct RunView: View {
 
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
-        RunView()
+        RunView(isRunning: .constant(false))
     }
 }
 

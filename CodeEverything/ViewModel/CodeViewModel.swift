@@ -19,6 +19,11 @@ class CodeViewModel: ObservableObject {
             // load code into webview
             // navigate to RunView
         }
+    
+    func stop() {
+        // stop running code
+        // navigate back to CodeView
+    }
 }
 
 // For identifiying WebView's forward and backward navigation

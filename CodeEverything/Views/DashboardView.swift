@@ -10,8 +10,20 @@ import SwiftUI
 
 struct DashboardView: View {
     
+    @State private var isRunning = false
+    
     var body: some View {
-        CodeView()
+        ZStack {
+            if !isRunning {
+                CodeView(isRunning: $isRunning)
+                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
+            }
+
+            if isRunning {
+                RunView(isRunning: $isRunning)
+                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
+            }
+        }
     }
 }
 
