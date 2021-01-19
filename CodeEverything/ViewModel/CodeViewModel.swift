@@ -9,8 +9,8 @@ class CodeViewModel: ObservableObject {
     var valuePublisher = PassthroughSubject<String, Never>()
     
     @Published var isRunning: Bool
-    var title: String
-    var text: String
+    @Published var title: String
+    @Published var text: String
     
     init() {
         text = "writeln('Hello World');"
@@ -21,6 +21,7 @@ class CodeViewModel: ObservableObject {
     func run()  {
             // load code into webview
             // navigate to RunView
+        var result = self.text
         isRunning = true
         }
     

@@ -52,7 +52,8 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
         if url == .localUrl {
             // Load local website
             if let url = Bundle.main.url(forResource: "Console", withExtension: "html", subdirectory: "www") {
-                webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+                //webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+                webView.loadHTMLString("<!DOCTYPE html><html><head></head><body><div>hello</div></body></html>", baseURL: nil)
             }
         } else if url == .publicUrl {
             // Load a public website, for example I used here google.com
@@ -79,20 +80,6 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            // Get the title of loaded webcontent
-            webView.evaluateJavaScript("document.title") { (response, error) in
-                if let error = error {
-                    print("Error getting title")
-                    print(error.localizedDescription)
-                }
-                
-                guard let title = response as? String else {
-                    return
-                }
-                
-                self.parent.viewModel.showWebTitle.send(title)
-            }
-            
             /* An observer that observes 'viewModel.valuePublisher' to get value from TextField and
              pass that value to web app by calling JavaScript function */
             valueSubscriber = parent.viewModel.valuePublisher.receive(on: RunLoop.main).sink(receiveValue: { value in
@@ -110,6 +97,22 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
             
             // Page loaded so no need to show loader anymore
             self.parent.viewModel.showLoader.send(false)
+            /*
+            let param = "function main() { writeln(Yeahh); }"
+            // Get the title of loaded webcontent
+            webView.evaluateJavaScript("loadScript('\(param)')") { (response, error) in
+                if let error = error {
+                    print("Error getting title")
+                    print(error.localizedDescription)
+                }
+                
+                //guard let title = response as? String else {
+                //    return
+                //}
+                
+                //self.parent.viewModel.showWebTitle.send(title)
+            }
+ */
         }
         
         /* Here I implemented most of the WKWebView's delegate functions so that you can know them and
