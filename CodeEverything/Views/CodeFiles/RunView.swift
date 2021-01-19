@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RunView: View {
     @EnvironmentObject var viewModel: CodeViewModel
-    @Binding var isRunning: Bool
+    
     @State var showLoader = false
     @State var message = ""
     @State var webTitle = ""
@@ -15,7 +15,7 @@ struct RunView: View {
                 Spacer()
                 Button(action: {
                             withAnimation(.easeOut(duration: 0.3)) {
-                                self.isRunning.toggle()
+                                viewModel.stop()
                             }
                 })
                 {
@@ -52,8 +52,10 @@ struct RunView: View {
 }
 
 struct RunView_Previews: PreviewProvider {
+    static let modelData = CodeViewModel()
     static var previews: some View {
-        RunView(isRunning: .constant(false))
+        RunView()
+            .environmentObject(modelData)
     }
 }
 

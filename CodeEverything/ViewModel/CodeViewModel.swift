@@ -7,22 +7,27 @@ class CodeViewModel: ObservableObject {
     var showWebTitle = PassthroughSubject<String, Never>()
     var showLoader = PassthroughSubject<Bool, Never>()
     var valuePublisher = PassthroughSubject<String, Never>()
+    
+    @Published var isRunning: Bool
     var title: String
     var text: String
     
     init() {
-        text = "console.log('Hello World');"
+        text = "writeln('Hello World');"
         title = "My Code"
+        isRunning = false
     }
     
     func run()  {
             // load code into webview
             // navigate to RunView
+        isRunning = true
         }
     
     func stop() {
         // stop running code
         // navigate back to CodeView
+        isRunning = false
     }
 }
 

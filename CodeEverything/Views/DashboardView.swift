@@ -9,18 +9,17 @@
 import SwiftUI
 
 struct DashboardView: View {
-    
-    @State private var isRunning = false
+    @EnvironmentObject var viewModel: CodeViewModel
     
     var body: some View {
         ZStack {
-            if !isRunning {
-                CodeView(isRunning: $isRunning)
+            if !viewModel.isRunning {
+                CodeView()
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
             }
 
-            if isRunning {
-                RunView(isRunning: $isRunning)
+            if viewModel.isRunning {
+                RunView()
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
             }
         }
@@ -28,7 +27,9 @@ struct DashboardView: View {
 }
 
 struct Dashboard_Previews: PreviewProvider {
+    static let modelData = CodeViewModel()
     static var previews: some View {
         DashboardView()
+            .environmentObject(modelData)
     }
 }
