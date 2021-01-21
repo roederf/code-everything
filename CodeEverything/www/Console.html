@@ -28,27 +28,6 @@
             // Here iOSNative is the name we passed from iOS app
             window.webkit.messageHandlers.iOSNative.postMessage("Bla Bla Bla");
         }
-        
-    </script>
-    <script>
-        function loadScript(content) {
-            var newScript = document.createElement("script");
-            //newScript.setAttribute("async", "false");
-            newScript.addEventListener("load", scriptLoaded, false);
-            var inlineScript = document.createTextNode(content);
-            newScript.appendChild(inlineScript);
-            
-            document.body.appendChild(newScript);
-            //let head = document.body;
-            //head.insertBefore(myCoolCode, head.firstElementChild);
-            //writeln(content);
-            main();
-        }
-    
-          function scriptLoaded(){
-              writeln("script loaded");
-          }
-    
         function writeln(value) {
             var output = document.getElementById("output");
             var line = document.createElement("p");
@@ -56,5 +35,5 @@
             output.appendChild(line);
         }
     </script>
-</body>
-</html>
+    <script id="entry">
+

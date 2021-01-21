@@ -14,6 +14,7 @@ protocol WebViewHandlerDelegate {
 
 // MARK: - WebView
 struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
+        
     func receivedJsonValueFromWebView(value: [String : Any?]) {
         print("JSON value received from web is: \(value)")
     }
@@ -51,9 +52,18 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
     func updateUIView(_ webView: WKWebView, context: Context) {
         if url == .localUrl {
             // Load local website
-            if let url = Bundle.main.url(forResource: "Console", withExtension: "html", subdirectory: "www") {
-                //webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
-                webView.loadHTMLString("<!DOCTYPE html><html><head></head><body><div>hello</div></body></html>", baseURL: nil)
+            if let filePath = Bundle.main.path(forResource: "Console", ofType: "html", inDirectory: "www")
+            {
+                let ending = "</script></body></html>"
+
+                var contents = try! String(contentsOfFile: filePath, encoding: .utf8)
+                // remove last part of file
+                //contents = String(contents.dropLast(23))
+                // append script
+                contents = contents + self.viewModel.text + ending
+                
+                webView.loadHTMLString(contents as String, baseURL: nil)
+            
             }
         } else if url == .publicUrl {
             // Load a public website, for example I used here google.com
