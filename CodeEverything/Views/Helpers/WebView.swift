@@ -57,9 +57,7 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
                 let ending = "</script></body></html>"
 
                 var contents = try! String(contentsOfFile: filePath, encoding: .utf8)
-                // remove last part of file
-                //contents = String(contents.dropLast(23))
-                // append script
+                
                 contents = contents + self.viewModel.text + ending
                 
                 webView.loadHTMLString(contents as String, baseURL: nil)
