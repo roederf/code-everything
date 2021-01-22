@@ -18,7 +18,6 @@ class MainViewModel: ObservableObject {
     }
     
     func run()  {
-        _ = self.text
         isRunning = true
         }
     
