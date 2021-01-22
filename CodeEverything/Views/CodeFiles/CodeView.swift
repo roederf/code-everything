@@ -1,23 +1,23 @@
 import SwiftUI
 
 struct CodeView: View {
-    @EnvironmentObject var viewmodel: CodeViewModel
-    //@Binding var isRunning: Bool
+    @EnvironmentObject var viewModel: CodeViewModel
+
     init() {
-            UITextView.appearance().backgroundColor = .clear
-        }
+        UITextView.appearance().backgroundColor = .clear
+    }
             
     var body: some View {
         
         VStack(spacing: 0) {
             ZStack {
                 HStack {
-                    Text(viewmodel.title)
+                    Text(viewModel.title)
                     Spacer()
                     Button(action: {
-                                withAnimation(.easeOut(duration: 0.3)) {
-                                    viewmodel.run()
-                                }
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            viewModel.run()
+                        }
                     }) {
                         Image(systemName: "play")
                             .font(.system(size: 20, weight: .regular))
@@ -33,10 +33,10 @@ struct CodeView: View {
             
             Divider()
                 
-            TextEditor(text: $viewmodel.text)
+            TextEditor(text: $viewModel.text)
                 .foregroundColor(Color(red:0.9, green: 0.9, blue: 0.9))
                 .background(Color(red:0.2, green: 0.2, blue: 0.2))
-                .font(.custom("SF Mono", size: 15))
+                .font(.custom("Courier New", size: 18))
                 .border(Color.black, width: 0)
                 .disableAutocorrection(true)
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
@@ -46,10 +46,10 @@ struct CodeView: View {
 }
 
 struct CodeView_Previews: PreviewProvider {
-    static let modelData = CodeViewModel()
+    static let viewModel = CodeViewModel()
     
     static var previews: some View {
         CodeView()
-            .environmentObject(modelData)
+            .environmentObject(viewModel)
     }
 }

@@ -19,15 +19,11 @@ class CodeViewModel: ObservableObject {
     }
     
     func run()  {
-            // load code into webview
-            // navigate to RunView
-        var result = self.text
+        _ = self.text
         isRunning = true
         }
     
     func stop() {
-        // stop running code
-        // navigate back to CodeView
         isRunning = false
     }
 }
@@ -37,7 +33,3 @@ enum WebViewNavigation {
     case backward, forward, reload
 }
 
-// For identifying what type of url should load into WebView
-enum WebUrlType {
-    case localUrl, publicUrl
-}

@@ -27,9 +27,9 @@ struct DashboardView: View {
 }
 
 struct Dashboard_Previews: PreviewProvider {
-    static let modelData = CodeViewModel()
+    static let viewModel = CodeViewModel()
     static var previews: some View {
         DashboardView()
-            .environmentObject(modelData)
+            .environmentObject(viewModel)
     }
 }

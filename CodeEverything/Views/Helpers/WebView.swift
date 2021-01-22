@@ -6,7 +6,6 @@ import Combine
 import WebKit
 
 // MARK: - WebViewHandlerDelegate
-// For printing values received from web app
 protocol WebViewHandlerDelegate {
     func receivedJsonValueFromWebView(value: [String: Any?])
     func receivedStringValueFromWebView(value: String)
@@ -14,7 +13,9 @@ protocol WebViewHandlerDelegate {
 
 // MARK: - WebView
 struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
-        
+    // Viewmodel object
+    @ObservedObject var viewModel: CodeViewModel
+    
     func receivedJsonValueFromWebView(value: [String : Any?]) {
         print("JSON value received from web is: \(value)")
     }
@@ -22,10 +23,6 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
     func receivedStringValueFromWebView(value: String) {
         print("String value received from web is: \(value)")
     }
-    
-    var url: WebUrlType
-    // Viewmodel object
-    @ObservedObject var viewModel: CodeViewModel
     
     // Make a coordinator to co-ordinate with WKWebView's default delegate functions
     func makeCoordinator() -> Coordinator {
@@ -44,29 +41,24 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
         
         let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
-        webView.allowsBackForwardNavigationGestures = true
-        webView.scrollView.isScrollEnabled = true
+        webView.allowsBackForwardNavigationGestures = false
+        webView.scrollView.isScrollEnabled = false
        return webView
     }
     
     func updateUIView(_ webView: WKWebView, context: Context) {
-        if url == .localUrl {
-            // Load local website
-            if let filePath = Bundle.main.path(forResource: "Console", ofType: "html", inDirectory: "www")
+        // Load local website
+        if let filePath1 = Bundle.main.path(forResource: "RunView_Part1", ofType: "html", inDirectory: "www")
+        {
+            let part1 = try! String(contentsOfFile: filePath1, encoding: .utf8)
+            
+            if let filePath2 = Bundle.main.path(forResource: "RunView_Part2", ofType: "html", inDirectory: "www")
             {
-                let ending = "</script></body></html>"
-
-                var contents = try! String(contentsOfFile: filePath, encoding: .utf8)
+                let part2 = try! String(contentsOfFile: filePath2, encoding: .utf8)
                 
-                contents = contents + self.viewModel.text + ending
+                let contents = part1 + self.viewModel.text + part2
                 
                 webView.loadHTMLString(contents as String, baseURL: nil)
-            
-            }
-        } else if url == .publicUrl {
-            // Load a public website, for example I used here google.com
-            if let url = URL(string: "https://gorilla-hackibacki.web.app") {
-                webView.load(URLRequest(url: url))
             }
         }
     }
@@ -103,8 +95,6 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
                 }
             })
             
-            // Page loaded so no need to show loader anymore
-            self.parent.viewModel.showLoader.send(false)
             /*
             let param = "function main() { writeln(Yeahh); }"
             // Get the title of loaded webcontent
@@ -120,30 +110,22 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
                 
                 //self.parent.viewModel.showWebTitle.send(title)
             }
- */
+             */
         }
         
-        /* Here I implemented most of the WKWebView's delegate functions so that you can know them and
-         can use them in different necessary purposes */
-        
         func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-            // Hides loader
-            parent.viewModel.showLoader.send(false)
+            
         }
         
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-            // Hides loader
-            parent.viewModel.showLoader.send(false)
+            
         }
         
         func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-            // Shows loader
-            parent.viewModel.showLoader.send(true)
+            
         }
         
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            // Shows loader
-            parent.viewModel.showLoader.send(true)
             self.webViewNavigationSubscriber = self.parent.viewModel.webViewNavigationPublisher.receive(on: RunLoop.main).sink(receiveValue: { navigation in
                 switch navigation {
                     case .backward:
