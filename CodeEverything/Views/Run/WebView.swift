@@ -14,7 +14,7 @@ protocol WebViewHandlerDelegate {
 // MARK: - WebView
 struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
     // Viewmodel object
-    @ObservedObject var viewModel: CodeViewModel
+    @ObservedObject var viewModel: MainViewModel
     
     func receivedJsonValueFromWebView(value: [String : Any?]) {
         print("JSON value received from web is: \(value)")

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RunView: View {
-    @EnvironmentObject var viewModel: CodeViewModel
+    @EnvironmentObject var viewModel: MainViewModel
         
     var body: some View {
         ZStack {
@@ -31,7 +31,7 @@ struct RunView: View {
 }
 
 struct RunView_Previews: PreviewProvider {
-    static let viewModel = CodeViewModel()
+    static let viewModel = MainViewModel()
     static var previews: some View {
         RunView()
             .environmentObject(viewModel)

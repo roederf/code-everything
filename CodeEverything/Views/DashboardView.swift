@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @EnvironmentObject var viewModel: CodeViewModel
+    @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct DashboardView: View {
 }
 
 struct Dashboard_Previews: PreviewProvider {
-    static let viewModel = CodeViewModel()
+    static let viewModel = MainViewModel()
     static var previews: some View {
         DashboardView()
             .environmentObject(viewModel)

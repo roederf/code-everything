@@ -2,7 +2,7 @@
 import Foundation
 import Combine
 
-class CodeViewModel: ObservableObject {
+class MainViewModel: ObservableObject {
     var webViewNavigationPublisher = PassthroughSubject<WebViewNavigation, Never>()
     var showWebTitle = PassthroughSubject<String, Never>()
     var showLoader = PassthroughSubject<Bool, Never>()

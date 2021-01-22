@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct LandmarksApp: App {
-    @StateObject private var viewModel = CodeViewModel()
+    @StateObject private var viewModel = MainViewModel()
 
     var body: some Scene {
         WindowGroup {

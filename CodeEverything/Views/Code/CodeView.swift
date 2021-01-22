@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CodeView: View {
-    @EnvironmentObject var viewModel: CodeViewModel
+    @EnvironmentObject var viewModel: MainViewModel
 
     init() {
         UITextView.appearance().backgroundColor = .clear
@@ -46,7 +46,7 @@ struct CodeView: View {
 }
 
 struct CodeView_Previews: PreviewProvider {
-    static let viewModel = CodeViewModel()
+    static let viewModel = MainViewModel()
     
     static var previews: some View {
         CodeView()
