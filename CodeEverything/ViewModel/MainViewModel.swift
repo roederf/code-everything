@@ -4,8 +4,7 @@ import Combine
 
 class MainViewModel: ObservableObject {
     var webViewNavigationPublisher = PassthroughSubject<WebViewNavigation, Never>()
-    var showWebTitle = PassthroughSubject<String, Never>()
-    var showLoader = PassthroughSubject<Bool, Never>()
+    
     var valuePublisher = PassthroughSubject<String, Never>()
     
     @Published var isRunning: Bool
