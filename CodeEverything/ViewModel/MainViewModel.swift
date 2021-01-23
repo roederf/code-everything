@@ -14,23 +14,29 @@ class MainViewModel: ObservableObject {
     
     
     init() {
-        content = "SayHello();"
+        content = ""
         appName = "Hello World App"
         isRunning = false
         // dummy init for now
         let func1 = AppFunctionModel()
         func1.id = 1
+        func1.name = "SayHello"
+        func1.content = "function SayHello(){\n\t writeln('Hello World');\n }"
         appFunctions.append(func1)
         let func2 = AppFunctionModel()
         func2.id = 2
-        func2.name = "test"
-        func2.content = "function Test(){\n\t writeln('This is a test');\n }"
+        func2.name = "Main"
+        func2.content = "SayHello();"
         appFunctions.append(func2)
     }
     
     func run()  {
-        isRunning = true
+        content = ""
+        for f in appFunctions {
+            content += f.content
         }
+        isRunning = true
+    }
     
     func stop() {
         isRunning = false

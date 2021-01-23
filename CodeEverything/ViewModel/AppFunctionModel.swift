@@ -15,8 +15,8 @@ class AppFunctionModel : ObservableObject, Identifiable {
     
     init() {
         id = 0
-        name = "SayHello"
-        content = "function SayHello(){\n\t writeln('Hello World');\n }"
+        name = ""
+        content = ""
     }
     
     func toScript() -> String {
