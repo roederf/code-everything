@@ -15,11 +15,24 @@ struct AppFunctionList: View {
         NavigationView {
             List {
                 ForEach(viewModel.appFunctions) { appFunction in
-                    NavigationLink(destination: CodeView(appFunction: appFunction)) {
+                    NavigationLink(destination: CodeView(theFunction: appFunction)) {
                         AppFunctionListRow(appFunction: appFunction)
                     }
                 }
             }
+            .navigationTitle(viewModel.appName)
+            .navigationBarItems(
+                trailing:
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "plus")
+                            .font(.system(size: 20, weight: .regular))
+                            .imageScale(.large)
+                            .foregroundColor(.black)
+                            .padding(.bottom, 4)
+                    }
+            )
         }
     }
 }

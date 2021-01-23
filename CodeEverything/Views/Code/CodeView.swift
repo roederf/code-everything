@@ -5,9 +5,10 @@ struct CodeView: View {
     
     var appFunction: AppFunctionModel
     
-    //init() {
-    //    UITextView.appearance().backgroundColor = .clear
-    //}
+    init(theFunction: AppFunctionModel) {
+        UITextView.appearance().backgroundColor = .clear
+        appFunction = theFunction
+    }
     
     var appFunctionIndex: Int {
         viewModel.appFunctions.firstIndex(where: {
@@ -17,6 +18,7 @@ struct CodeView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+                       
             TextEditor(text: $viewModel.appFunctions[appFunctionIndex].content)
                 .foregroundColor(Color(red:0.9, green: 0.9, blue: 0.9))
                 .background(Color(red:0.2, green: 0.2, blue: 0.2))
@@ -26,14 +28,30 @@ struct CodeView: View {
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 .keyboardType(.asciiCapable)
         }
+        .navigationBarTitle(appFunction.name)
+        .navigationBarItems(
+            trailing:
+                Button(action: {
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        viewModel.run()
+                    }
+                }) {
+                    Image(systemName: "play")
+                        .font(.system(size: 20, weight: .regular))
+                        .imageScale(.large)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 4)
+                }
+        )
     }
+    
 }
 
 struct CodeView_Previews: PreviewProvider {
     static let viewModel = MainViewModel()
     
     static var previews: some View {
-        CodeView(appFunction: viewModel.appFunctions[0])
+        CodeView(theFunction: viewModel.appFunctions[0])
             .environmentObject(viewModel)
     }
 }

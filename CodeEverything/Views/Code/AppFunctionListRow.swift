@@ -23,5 +23,6 @@ struct AppFunctionListRow_Previews: PreviewProvider {
     static var appFunction = MainViewModel().appFunctions[0]
     static var previews: some View {
         AppFunctionListRow(appFunction: appFunction)
+            .previewLayout(.fixed(width: 300, height: 70))
     }
 }
