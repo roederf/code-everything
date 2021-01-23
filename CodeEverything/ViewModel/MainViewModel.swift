@@ -10,17 +10,17 @@ class MainViewModel: ObservableObject {
     @Published var isRunning: Bool
     @Published var appName: String
     @Published var content: String
-    @Published var appFunctions : [FunctionViewModel] = []
+    @Published var appFunctions : [AppFunctionModel] = []
     
     
     init() {
         content = "SayHello();"
         appName = "My App"
         isRunning = false
-        let func1 = FunctionViewModel()
+        let func1 = AppFunctionModel()
         func1.id = 1
         appFunctions.append(func1)
-        let func2 = FunctionViewModel()
+        let func2 = AppFunctionModel()
         func2.id = 2
         func2.name = "test"
         appFunctions.append(func2)

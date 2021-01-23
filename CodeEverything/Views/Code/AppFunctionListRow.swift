@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AppFunctionListRow: View {
-    var appFunction: FunctionViewModel
+    var appFunction: AppFunctionModel
     
     var body: some View {
         HStack {

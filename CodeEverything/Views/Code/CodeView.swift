@@ -3,11 +3,11 @@ import SwiftUI
 struct CodeView: View {
     @EnvironmentObject var viewModel: MainViewModel
     
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
+    var appFunction: AppFunctionModel
     
-    var appFunction: FunctionViewModel
+    //init() {
+    //    UITextView.appearance().backgroundColor = .clear
+    //}
     
     var appFunctionIndex: Int {
         viewModel.appFunctions.firstIndex(where: {

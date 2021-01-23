@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FunctionViewModel : ObservableObject, Identifiable {
+class AppFunctionModel : ObservableObject, Identifiable {
     var id: Int
     var name: String
     var content: String
