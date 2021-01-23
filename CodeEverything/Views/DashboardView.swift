@@ -14,7 +14,7 @@ struct DashboardView: View {
     var body: some View {
         ZStack {
             if !viewModel.isRunning {
-                CodeView()
+                AppCodeView()
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
             }
 

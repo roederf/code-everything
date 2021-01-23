@@ -56,7 +56,7 @@ struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
             {
                 let part2 = try! String(contentsOfFile: filePath2, encoding: .utf8)
                 
-                let contents = part1 + self.viewModel.text + part2
+                let contents = part1 + self.viewModel.content + part2
                 
                 webView.loadHTMLString(contents as String, baseURL: nil)
             }
