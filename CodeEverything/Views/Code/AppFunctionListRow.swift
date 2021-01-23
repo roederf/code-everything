@@ -9,18 +9,19 @@
 import SwiftUI
 
 struct AppFunctionListRow: View {
-    var functionViewModel: FunctionViewModel
+    var appFunction: FunctionViewModel
     
     var body: some View {
         HStack {
-            Text(functionViewModel.name)
+            Text(appFunction.name)
             Spacer()
         }
     }
 }
 
 struct AppFunctionListRow_Previews: PreviewProvider {
+    static var appFunction = MainViewModel().appFunctions[0]
     static var previews: some View {
-        AppFunctionListRow(functionViewModel: FunctionViewModel())
+        AppFunctionListRow(appFunction: appFunction)
     }
 }

@@ -9,12 +9,16 @@
 import SwiftUI
 
 struct AppFunctionList: View {
-    var appFunctions: [FunctionViewModel]
+    @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
         NavigationView {
-            List(appFunctions) { appFunction in
-                AppFunctionListRow(functionViewModel: appFunction)
+            List {
+                ForEach(viewModel.appFunctions) { appFunction in
+                    NavigationLink(destination: CodeView(appFunction: appFunction)) {
+                        AppFunctionListRow(appFunction: appFunction)
+                    }
+                }
             }
         }
     }
@@ -24,6 +28,7 @@ struct AppFunctionList_Previews: PreviewProvider {
     static let viewModel = MainViewModel()
     
     static var previews: some View {
-        AppFunctionList(appFunctions: viewModel.appFunctions)
+        AppFunctionList()
+            .environmentObject(viewModel)
     }
 }

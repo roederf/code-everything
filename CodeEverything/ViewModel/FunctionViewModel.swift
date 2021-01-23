@@ -10,8 +10,8 @@ import Foundation
 
 class FunctionViewModel : ObservableObject, Identifiable {
     var id: Int
-    @Published var name: String
-    @Published var content: String
+    var name: String
+    var content: String
     
     init() {
         id = 0

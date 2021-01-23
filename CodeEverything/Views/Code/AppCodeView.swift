@@ -38,7 +38,7 @@ struct AppCodeView: View {
         VStack(spacing: 0) {
             headerBar
                 
-            AppFunctionList(appFunctions: viewModel.appFunctions)
+            AppFunctionList()
         }
     }
 }
