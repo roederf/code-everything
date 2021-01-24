@@ -8,7 +8,18 @@
 
 import Foundation
 
-class AppFunctionModel : ObservableObject, Identifiable {
+class AppFunctionModel : ObservableObject, Identifiable, Hashable {
+    
+    static func == (lhs: AppFunctionModel, rhs: AppFunctionModel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.content == rhs.content
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(content)
+    }
+    
     var id: Int
     var name: String
     var content: String

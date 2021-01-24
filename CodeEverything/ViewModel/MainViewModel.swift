@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     @Published var appName: String
     @Published var content: String
     @Published var appFunctions : [AppFunctionModel] = []
-    
+        
     
     init() {
         content = ""

@@ -11,13 +11,27 @@ import SwiftUI
 struct AppFunctionList: View {
     @EnvironmentObject var viewModel: MainViewModel
     
+    @State private var selectedView: Int? = 0
+        
     var body: some View {
+        
         NavigationView {
             List {
                 ForEach(viewModel.appFunctions) { appFunction in
-                    NavigationLink(destination: CodeView(theFunction: appFunction)) {
-                        AppFunctionListRow(appFunction: appFunction)
-                    }
+                    NavigationLink(destination: CodeView(theFunction: appFunction),
+                                   tag: appFunction.id,
+                                   selection: self.$selectedView,
+                                   label: {
+                                    AppFunctionListRow(appFunction: appFunction)
+                                })
+                }
+            }
+            .onAppear{
+                let device = UIDevice.current
+                if device.model == "iPad" && device.orientation.isLandscape{
+                    self.selectedView = 1
+                } else {
+                    self.selectedView = 0
                 }
             }
             .navigationTitle(viewModel.appName)
