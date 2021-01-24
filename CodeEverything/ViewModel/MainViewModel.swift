@@ -18,16 +18,16 @@ class MainViewModel: ObservableObject {
         appName = "Hello World App"
         isRunning = false
         // dummy init for now
-        let func1 = AppFunctionModel()
-        func1.id = 1
-        func1.name = "SayHello"
-        func1.content = "function SayHello(){\n\t writeln('Hello World');\n }"
-        appFunctions.append(func1)
         let func2 = AppFunctionModel()
-        func2.id = 2
+        func2.id = 1
         func2.name = "Main"
         func2.content = "SayHello();"
         appFunctions.append(func2)
+        let func1 = AppFunctionModel()
+        func1.id = 2
+        func1.name = "SayHello"
+        func1.content = "function SayHello(){\n\t writeln('Hello World');\n }"
+        appFunctions.append(func1)
     }
     
     func run()  {

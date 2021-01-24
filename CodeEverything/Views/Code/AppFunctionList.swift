@@ -11,7 +11,7 @@ import SwiftUI
 struct AppFunctionList: View {
     @EnvironmentObject var viewModel: MainViewModel
     
-    @State private var selectedView: Int? = 0
+    @State private var selectedView: Int? = 1
         
     var body: some View {
         
@@ -24,14 +24,6 @@ struct AppFunctionList: View {
                                    label: {
                                     AppFunctionListRow(appFunction: appFunction)
                                 })
-                }
-            }
-            .onAppear{
-                let device = UIDevice.current
-                if device.model == "iPad" && device.orientation.isLandscape{
-                    self.selectedView = 1
-                } else {
-                    self.selectedView = 0
                 }
             }
             .navigationTitle(viewModel.appName)

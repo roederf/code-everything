@@ -10,7 +10,6 @@
 		0E65F1DB25BB80AC005E843A /* AppFunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65F1DA25BB80AC005E843A /* AppFunctionModel.swift */; };
 		0E65F1E825BB8A97005E843A /* AppFunctionListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65F1E725BB8A97005E843A /* AppFunctionListRow.swift */; };
 		0E65F1ED25BB8BF6005E843A /* AppFunctionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65F1EC25BB8BF6005E843A /* AppFunctionList.swift */; };
-		0E65F1F225BB945B005E843A /* AppCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65F1F125BB945B005E843A /* AppCodeView.swift */; };
 		0E7204DA259F803B00A8A081 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7204D7259F803B00A8A081 /* MainViewModel.swift */; };
 		0E7204DC259F803B00A8A081 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7204D9259F803B00A8A081 /* WebView.swift */; };
 		0E7204DE259F804900A8A081 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 0E7204DD259F804900A8A081 /* www */; };
@@ -46,7 +45,6 @@
 		0E65F1DA25BB80AC005E843A /* AppFunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFunctionModel.swift; sourceTree = "<group>"; };
 		0E65F1E725BB8A97005E843A /* AppFunctionListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFunctionListRow.swift; sourceTree = "<group>"; };
 		0E65F1EC25BB8BF6005E843A /* AppFunctionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFunctionList.swift; sourceTree = "<group>"; };
-		0E65F1F125BB945B005E843A /* AppCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCodeView.swift; sourceTree = "<group>"; };
 		0E7204D7259F803B00A8A081 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0E7204D9259F803B00A8A081 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0E7204DD259F804900A8A081 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				0EAB86B9259F7871001A9D73 /* CodeView.swift */,
 				0E65F1E725BB8A97005E843A /* AppFunctionListRow.swift */,
 				0E65F1EC25BB8BF6005E843A /* AppFunctionList.swift */,
-				0E65F1F125BB945B005E843A /* AppCodeView.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				0EAB86BA259F7871001A9D73 /* CodeView.swift in Sources */,
 				0E7204E6259FDE1600A8A081 /* RunView.swift in Sources */,
 				0E65F1E825BB8A97005E843A /* AppFunctionListRow.swift in Sources */,
-				0E65F1F225BB945B005E843A /* AppCodeView.swift in Sources */,
 				0EFAC60C25A379F400CBAD18 /* CodeEverythingApp.swift in Sources */,
 				0E65F1ED25BB8BF6005E843A /* AppFunctionList.swift in Sources */,
 			);
