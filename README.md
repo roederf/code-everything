@@ -8,7 +8,7 @@ Wouldn't it be cool to have the same experience on an iPad?
 
 I know there are online tools, but most feels more like a playground. 
 
-![alt text](https://github.com/[froeder]/[code-everything]/blob/[master]/example/screen1.jpg?raw=true)
-![alt text](https://github.com/[froeder]/[code-everything]/blob/[master]/example/screen2.jpg?raw=true)
+![alt text](https://github.com/[froeder]/[code-everything]/blob/[master]/example/screen1.png?raw=true)
+![alt text](https://github.com/[froeder]/[code-everything]/blob/[master]/example/screen2.png?raw=true)
 
 
