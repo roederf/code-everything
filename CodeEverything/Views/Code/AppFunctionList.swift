@@ -29,9 +29,7 @@ struct AppFunctionList: View {
             .navigationTitle(viewModel.appName)
             .navigationBarItems(
                 trailing:
-                    Button(action: {
-                        
-                    }) {
+                    Button(action: viewModel.addFunction) {
                         Image(systemName: "plus")
                             .font(.system(size: 20, weight: .regular))
                             .imageScale(.large)

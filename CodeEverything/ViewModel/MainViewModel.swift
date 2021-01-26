@@ -30,6 +30,14 @@ class MainViewModel: ObservableObject {
         appFunctions.append(func1)
     }
     
+    func addFunction() {
+        let f = AppFunctionModel()
+        f.id = appFunctions.count + 1
+        f.name = "NewFunction"
+        f.content = "function NewFunction(){\n\t\n }"
+        appFunctions.append(f)
+    }
+    
     func run()  {
         content = ""
         for f in appFunctions {
