@@ -13,6 +13,8 @@
   
 </head>
 <body>
+    <canvas id="canvas" style="position:absolute;left:0px;top:0px;" width=2160px; height=1620px></canvas>
+    
     <div id="output"></div>
 
     <script type = "text/javascript">
@@ -33,6 +35,23 @@
             var line = document.createElement("p");
             line.innerHTML = value;
             output.appendChild(line);
+        }
+        function get2dContext() {
+            var canvas = document.getElementById('canvas');
+            return canvas.getContext('2d');
+        }
+        function getCanvasWidth() {
+            var canvas = document.getElementById('canvas');
+            return canvas.width;
+        }
+        function getCanvasHeight() {
+            var canvas = document.getElementById('canvas');
+            return canvas.height;
+        }
+        var SCREEN = {
+            Context2d: get2dContext(),
+            Width: getCanvasWidth(),
+            Height: getCanvasHeight()
         }
     </script>
     <script>
